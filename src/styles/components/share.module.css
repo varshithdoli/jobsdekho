@@ -1,0 +1,36 @@
+.shareButtons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.shareBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 14px;
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  color: #fff;
+  transition: opacity var(--transition-fast);
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+}
+
+.shareBtn:hover {
+  opacity: 0.85;
+  color: #fff;
+}
+
+.whatsapp { background: #25D366; }
+.telegram { background: #0088cc; }
+.linkedin { background: #0077B5; }
+.twitter { background: #1DA1F2; }
+.copy {
+  background: var(--gray-200);
+  color: var(--text-primary);
+}
+.copy:hover { color: var(--text-primary); }

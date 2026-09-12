@@ -1,0 +1,281 @@
+/* ============================================ */
+/* JOB DETAIL — Professional layout             */
+/* ============================================ */
+.layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  padding: 24px 0 48px;
+}
+
+@media (min-width: 768px) {
+  .layout {
+    grid-template-columns: 1fr 320px;
+    gap: 28px;
+  }
+}
+
+/* Main Content */
+.main {
+  min-width: 0;
+}
+
+.header {
+  margin-bottom: 20px;
+}
+
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.title {
+  font-size: var(--font-size-2xl);
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.3;
+  margin-bottom: 6px;
+}
+
+.org {
+  font-size: var(--font-size-lg);
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+/* Quick Info Grid */
+.infoGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: var(--border-color);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+
+@media (min-width: 768px) {
+  .infoGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.infoItem {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 14px 16px;
+  background: #ffffff;
+}
+
+.infoLabel {
+  font-size: var(--font-size-xs);
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.infoValue {
+  font-size: var(--font-size-sm);
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.urgentText {
+  color: var(--danger-600);
+}
+
+/* Sections */
+.section {
+  margin-bottom: 24px;
+  padding: 20px;
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+}
+
+.sectionTitle {
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--primary-100);
+}
+
+.prose {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  line-height: 1.8;
+  white-space: pre-wrap;
+}
+
+.editorial {
+  margin-top: 12px;
+  font-size: var(--font-size-xs);
+  color: var(--text-muted);
+  padding: 8px 12px;
+  background: var(--gray-50);
+  border-radius: var(--radius-md);
+}
+
+/* Skills */
+.skillTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* Important Dates Table */
+.datesTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.datesTable tr {
+  border-bottom: 1px solid var(--gray-100);
+}
+
+.datesTable tr:last-child {
+  border-bottom: none;
+}
+
+.dateLabel {
+  padding: 10px 12px 10px 0;
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.dateValue {
+  padding: 10px 0;
+  font-size: var(--font-size-sm);
+  color: var(--text-primary);
+  font-weight: 600;
+  text-align: right;
+}
+
+/* FAQ */
+.faqList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.faqItem {
+  border: 1px solid var(--gray-100);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.faqQuestion {
+  padding: 12px 16px;
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--text-primary);
+  cursor: pointer;
+  list-style: none;
+}
+
+.faqQuestion::-webkit-details-marker {
+  display: none;
+}
+
+.faqQuestion::before {
+  content: "▸";
+  margin-right: 8px;
+  color: var(--primary-500);
+}
+
+.faqItem[open] .faqQuestion::before {
+  content: "▾";
+}
+
+.faqAnswer {
+  padding: 0 16px 14px;
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* Verification Box */
+.verificationBox {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.verificationBox p {
+  margin-bottom: 6px;
+}
+
+/* Sidebar */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+@media (min-width: 768px) {
+  .sidebar {
+    position: sticky;
+    top: calc(var(--header-height) + 20px);
+    align-self: start;
+  }
+}
+
+.applyCard {
+  background: #ffffff;
+  border: 2px solid var(--success-500);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  text-align: center;
+}
+
+.applyTitle {
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.applyDeadline {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  margin-bottom: 14px;
+}
+
+.applyNote {
+  font-size: var(--font-size-xs);
+  color: var(--text-muted);
+  margin-top: 10px;
+  line-height: 1.4;
+}
+
+.shareCard, .reportCard {
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 16px;
+}
+
+.shareTitle {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+}
+
+.reportLink {
+  font-size: var(--font-size-sm);
+  color: var(--text-muted);
+  text-decoration: none;
+  display: block;
+  text-align: center;
+}
+
+.reportLink:hover {
+  color: var(--danger-600);
+}
