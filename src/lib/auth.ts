@@ -16,14 +16,14 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
   callbacks: {
     async signIn({ user, account }) {
       if (account?.provider === "google" && user.email) {
-        const ADMIN_EMAIL = "varshithd22@gmail.com";
+        const adminEmail = process.env.ADMIN_EMAIL;
         const existing = await queryOne<{ id: string }>(
           "SELECT id FROM profiles WHERE email = $1",
           [user.email]
         );
 
         if (!existing) {
-          const role = user.email === ADMIN_EMAIL ? "admin" : "user";
+          const role = adminEmail && user.email.toLowerCase() === adminEmail.toLowerCase() ? "admin" : "user";
           await query(
             `INSERT INTO profiles (id, email, full_name, avatar_url, role, creator_status, created_at, updated_at)
              VALUES (gen_random_uuid(), $1, $2, $3, $4, 'none', NOW(), NOW())`,
