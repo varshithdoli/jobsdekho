@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-import { useSession, signOut } from "next-auth/react";
+import { useSession, signIn, signOut } from "next-auth/react";
 import { CATEGORIES, SITE_NAME } from "@/lib/constants";
 import styles from "@/styles/components/header.module.css";
 
@@ -123,9 +123,9 @@ export default function Header() {
                 <Link href="/login" className={styles.signInLink}>
                   Sign In
                 </Link>
-                <Link href="/login?mode=signup" className="btn btn-primary btn-sm">
+                <button onClick={() => signIn("google", { callbackUrl: "/" })} className="btn btn-primary btn-sm">
                   Sign Up
-                </Link>
+                </button>
               </div>
             )}
 
@@ -186,14 +186,13 @@ export default function Header() {
             >
               Sign In
             </Link>
-            <Link
-              href="/login?mode=signup"
+            <button
+              onClick={() => { signIn("google", { callbackUrl: "/" }); setMobileOpen(false); }}
               className="btn btn-primary"
-              style={{ width: "100%", textAlign: "center" }}
-              onClick={() => setMobileOpen(false)}
+              style={{ width: "100%" }}
             >
               Sign Up — Free
-            </Link>
+            </button>
           </div>
         )}
       </nav>
