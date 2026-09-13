@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-import { useSession, signIn, signOut } from "next-auth/react";
+import { useSession, signOut } from "next-auth/react";
 import { CATEGORIES, SITE_NAME } from "@/lib/constants";
 import styles from "@/styles/components/header.module.css";
 
@@ -119,9 +119,14 @@ export default function Header() {
                 )}
               </div>
             ) : (
-              <button onClick={() => signIn("google")} className="btn btn-primary btn-sm">
-                Sign In
-              </button>
+              <div className={styles.authButtons}>
+                <Link href="/login" className={styles.signInLink}>
+                  Sign In
+                </Link>
+                <Link href="/login?mode=signup" className="btn btn-primary btn-sm">
+                  Sign Up
+                </Link>
+              </div>
             )}
 
             <button
@@ -173,9 +178,22 @@ export default function Header() {
         ))}
         {!user && (
           <div className={styles.mobileActions}>
-            <button onClick={() => { signIn("google"); setMobileOpen(false); }} className="btn btn-primary" style={{ width: "100%" }}>
-              Sign In with Google
-            </button>
+            <Link
+              href="/login"
+              className="btn btn-outline"
+              style={{ width: "100%", marginBottom: 8, textAlign: "center" }}
+              onClick={() => setMobileOpen(false)}
+            >
+              Sign In
+            </Link>
+            <Link
+              href="/login?mode=signup"
+              className="btn btn-primary"
+              style={{ width: "100%", textAlign: "center" }}
+              onClick={() => setMobileOpen(false)}
+            >
+              Sign Up — Free
+            </Link>
           </div>
         )}
       </nav>

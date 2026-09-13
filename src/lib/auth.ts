@@ -3,6 +3,7 @@ import Google from "next-auth/providers/google";
 import { query, queryOne } from "@/lib/db";
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
+  trustHost: true,
   providers: [
     Google({
       clientId: process.env.GOOGLE_CLIENT_ID!,

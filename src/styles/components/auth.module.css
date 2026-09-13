@@ -36,6 +36,18 @@
 .authSub {
   font-size: var(--font-size-sm);
   color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.errorBox {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #991b1b;
+  padding: 12px 16px;
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  margin-bottom: 20px;
+  text-align: left;
 }
 
 .googleBtn {
@@ -59,10 +71,33 @@
 .googleBtn:hover {
   border-color: var(--primary-400);
   box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}
+
+.googleBtn:active {
+  transform: translateY(0);
+}
+
+.authToggle {
+  margin-top: 20px;
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+}
+
+.authToggle a {
+  color: var(--primary-600);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.authToggle a:hover {
+  text-decoration: underline;
 }
 
 .authFooter {
-  margin-top: 24px;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border-color);
   font-size: var(--font-size-xs);
   color: var(--text-muted);
   line-height: 1.6;
